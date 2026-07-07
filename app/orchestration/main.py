@@ -28,6 +28,11 @@ class ArchitectureLayer(BaseModel):
     components: List[str]
 
 
+@app.get("/")
+def read_root():
+    return {"status": "online", "message": "CoverBridge V2 Architecture Backend is running on Vercel!"}
+
+
 @app.get("/health", tags=["System"])
 async def health_check():
     return {"status": "operational", "version": "2.0.0"}
